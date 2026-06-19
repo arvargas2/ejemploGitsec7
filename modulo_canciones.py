@@ -61,8 +61,11 @@ def agregar_cancion():
 
 
 def mostrar_canciones():
-    # este es un listar!
-    pass
+    if len(canciones_list) == 0:
+        print("NO hay registros en la BD")
+    else:
+        for cancion in canciones_list:
+            imprimir_cancion(cancion)
 
 
 def buscar_cancion():
