@@ -80,3 +80,18 @@ def buscar_cancion():
             imprimir_cancion(cancion)
     if encontrado == False:
         print("La cancion NO se encuentra en la BD")
+
+
+def cambiar_favorita():
+    titulo = str(input("Ingrese titulo:")).strip()
+    while not validar_texto_vacio(titulo):
+        titulo = str(input("Ingrese titulo:")).strip()
+
+    encontrado = False
+    for cancion in canciones_list:
+        if cancion["titulo"] == titulo:
+            encontrado = True
+            cancion["favorita"] = True
+
+    if encontrado == False:
+        print("NO existe dicha cancion en la BD")
