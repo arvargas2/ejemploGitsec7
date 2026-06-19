@@ -69,6 +69,14 @@ def mostrar_canciones():
 
 
 def buscar_cancion():
-    # se ingresa el título de la canción y
-    # se busca en la BD
-    pass
+    titulo = str(input("Ingrese titulo:")).strip()
+    while not validar_texto_vacio(titulo):
+        titulo = str(input("Ingrese titulo:")).strip()
+
+    encontrado = False
+    for cancion in canciones_list:
+        if cancion["titulo"] == titulo:
+            encontrado = True
+            imprimir_cancion(cancion)
+    if encontrado == False:
+        print("La cancion NO se encuentra en la BD")
